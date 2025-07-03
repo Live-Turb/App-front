@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 import { useState, useMemo, useEffect, useRef, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import { Search, ChevronDown, Flame, Heart, LayoutGrid, ArrowLeft, Loader } from "lucide-react"
@@ -130,8 +130,19 @@ const MarketplaceDashboard: React.FC = () => {
         });
       }
       
+      // Higienizar as URLs das imagens antes de usar os dados
+      const anunciosHigienizados = data.data.map((anuncio: Anuncio) => {
+        if (anuncio.imagem && anuncio.imagem.includes('app.liveturb.com')) {
+          return {
+            ...anuncio,
+            imagem: anuncio.imagem.replace('app.liveturb.com', 'liveturb.com'),
+          };
+        }
+        return anuncio;
+      });
+
       // Filtrar por favoritos localmente se necessário
-      let anuncios = data.data;
+      let anuncios = anunciosHigienizados;
       if (filters.favoritos && filters.favoritos.length > 0) {
         anuncios = anuncios.filter((a: Anuncio) => filters.favoritos.includes(a.id))
       }

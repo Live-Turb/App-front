@@ -2,10 +2,11 @@
 
 import type React from "react"
 import type { Anuncio } from "../types"
-import { BarChart2, Flame, Heart, TrendingDown, TrendingUp } from "lucide-react"
+import { BarChart2, Flame, Heart, ChevronDown, TrendingUp } from "lucide-react"
 import { CountryFlag } from "./country-flag"
 
 interface AnuncioCardProps {
+  key?: any;
   anuncio: Anuncio
   onClick: () => void
   isFavorito?: boolean
@@ -103,7 +104,7 @@ export const AnuncioCard: React.FC<AnuncioCardProps> = ({
                   <span>0 anúncios</span>
                 ) : (
                   <>
-                    <TrendingDown size={12} className="mr-1" />
+                    <ChevronDown size={12} className="mr-1" />
                     <span>- {Math.abs(anuncio.variacao_diaria)} anúncios</span>
                   </>
                 )}
@@ -177,7 +178,7 @@ export const AnuncioCard: React.FC<AnuncioCardProps> = ({
                   <span>0 anúncios</span>
                 ) : (
                   <>
-                    <TrendingDown size={12} className="mr-1" />
+                    <ChevronDown size={12} className="mr-1" />
                     <span>- {Math.abs(anuncio.variacao_semanal)} anúncios</span>
                   </>
                 )}

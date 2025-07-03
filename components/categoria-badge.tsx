@@ -3,6 +3,7 @@
 import type React from "react"
 
 interface CategoriaBadgeProps {
+  key?: any;
   categoria: {
     id: string
     nome: string
