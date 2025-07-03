@@ -1,0 +1,12 @@
+{
+  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm build",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "framework": "nextjs",
+  "build": {
+    "env": {
+      "NODE_VERSION": "20.x",
+      "PNPM_HOME": "/vercel/.local/share/pnpm"
+    }
+  },
+  "outputDirectory": ".next"
+}

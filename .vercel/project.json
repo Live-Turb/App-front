@@ -1,0 +1,9 @@
+{
+  "projectId": "prj_xxxxxxxxxxxxxxxxxxxxxxxx",
+  "orgId": "team_xxxxxxxx",
+  "settings": {
+    "buildCommand": "pnpm install --no-frozen-lockfile && pnpm build",
+    "outputDirectory": ".next",
+    "framework": "nextjs"
+  }
+}
